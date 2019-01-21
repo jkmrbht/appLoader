@@ -32,11 +32,7 @@ public class ProductController {
         stream.parallel().map(t->t.toString()).forEach(ProductController::eachRecord);
         return "generate File";
     }
-    
-    private static void eachRecord(String str) {
-    	
-    }
-
+       
     @RequestMapping(value = "/products", method = RequestMethod.GET, produces="application/json")
     public String products(){
         System.out.println("Returning products:");
