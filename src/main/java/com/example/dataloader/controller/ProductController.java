@@ -27,9 +27,8 @@ public class ProductController {
 
     @RequestMapping(value = "/productsStream", method = RequestMethod.GET, produces="application/json")
     public String productsStream(){
-        System.out.println("Returning products:");
-        Stream<Product> stream  = productService.getResultSetStream();
-        stream.parallel().map(t->t.toString()).forEach(ProductController::eachRecord);
+        System.out.println("Executing stream /....");
+        FileService.createFileWithStream(productService.getResultSetStream());
         return "generate File";
     }
        
